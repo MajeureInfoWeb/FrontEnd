@@ -1,10 +1,10 @@
 const heroku_url_api = "https://mighty-plains-77473.herokuapp.com/api/rooms";
 
 const vm = new Vue({
-    el: '#app',
+    el: '#approom',
     data: {
         rooms: [],
-        selectedRoom: 0
+        //selectedRoom: 0
     },
     mounted() {
         axios.get(heroku_url_api)
@@ -12,13 +12,13 @@ const vm = new Vue({
     },
     methods: {
         switchLight(room) {
-            this.selectedRoom = room;
+            //this.selectedRoom = room;
             let post_url = heroku_url_api + "/" + room.id + "/switchLightl";
             axios.post(post_url, {roomId: room.id})
                 .then(response => {this.rooms = response.data});
             },
         switchRinger(room) {
-            this.selectedRoom = room;
+            //this.selectedRoom = room;
             let post_url = heroku_url_api + "/" + room.id + "/switchRingerl";
             axios.post(post_url, {roomId: room.id})
                 .then(response => {this.rooms = response.data});
