@@ -48,10 +48,12 @@
 
         <h3 class="text-center">Switch Light of a room</h3>
         <p><font size="5"><b><tt>Choose room with ligth :</tt></b></font>
-        <select id="mySelect2">
-          <option> {{ ON }} </option>
-          <option> {{ OFF }}</option>
-        </select>
+        <select v-model="selectedONOFF">
+                <option disabled value="">Please select one</option>
+                <option>ON</option>
+                <option>OFF</option>
+            </select>
+
         </p>
         
         Pick the N° of room with light {{selectedONOFF}} you want to Switch the light : 

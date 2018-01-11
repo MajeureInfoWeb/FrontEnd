@@ -8,7 +8,7 @@ const vm = new Vue({
         selectedRoom: 0,
         ON: 'ON',
         OFF: 'OFF',
-        selectedONOFF: ' /!\\ none for now /!\\ ',
+        selectedONOFF: '',
     },
     mounted() {
         axios.get(heroku_url_api + "/On")
