@@ -4,17 +4,19 @@
 <head>
     <!--Le titre et l'icône de la page -->
     <title>Room</title>
-    <link rel="icon" type="image/png" href="happy-cloud.png" />
+    <link rel="icon" type="image/png" href="../img/happy-cloud.png" />
     <!-- Required meta tags -->
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
           integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"/>
-          Je veux ma jolie NavBar ! :P -->
+          
+          On change de bootstrap car je veux ma jolie NavBar ! :P -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <!--<script>
+    <!-- C'est sympa de montrer ce que je sais faire mais c'est pénible quand je fais des tests donc je mets en commentaires
+    <script>
        // run this function when the document is loaded
        window.onload = function() {
          window.alert('Bienvenue sur la page web du projet \nDésolé si heroku met un peu de temps à charger la première fois.');
@@ -26,15 +28,39 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand">Super Valentin !!!</a>
+      <a class="navbar-brand"> SuperWebApplication !!!</a>
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a>Les rooms</a></li>
-      <li><a href="../PageBuilding.html">Les buildings</a></li>
-      <li><a href="../index.html">Un truc à moi</a></li>
+      <li><a href="../Building/PageBuilding.html">Les buildings</a></li>
+      <li><a href="../SwitchLight/PageSwitchLight.html">Les switchs</a></li>
     </ul>
   </div>
 </nav>
+
+
+<div class="container" id="appbuilding">
+        <h3 class="text-center">Filter by Building <font size="1">(still not working)</font></h3>
+
+        <p><font size="5"><b><tt>Choose ...</tt></b></font></p>
+        <form NAME="myForm">
+        <select id="mySelect">
+            <option value="">Building n°</option>
+            <option v-for="building in buildings">
+                <span>{{building.buildingId}}</span>
+            </option>
+        </select>
+        </form>
+        <div>
+
+
+    </div>
+        <!-- Ce bouton n'a jamais marché mais je le garde quand même, c'était mes petits essais à moi.
+        <button v-on:click="switchOFF(form.myForm.selectedIndex)">Switch OFF</button>
+        {{this.selectedIndex}}
+        -->
+</div>
+
 
 <div class="container" id="approom">
     <h3 class="text-center">List of Rooms</h3>
@@ -60,18 +86,18 @@
             <th scope="row">{{ room.id }}</th>
 
             <!--Petit if pour afficher la bonne image -->
-            <td><div v-if="room.light.status == 'ON'"><img src="light-on.png"/></div>
-                <div v-else-if="room.light.status == 'OFF'"><img src="light-off.png"/></div>
+            <td><div v-if="room.light.status == 'ON'"><img src="../img/light-on.png"/></div>
+                <div v-else-if="room.light.status == 'OFF'"><img src="../img/light-off.png"/></div>
             </td>
             <td>{{ room.light.level }}</td>
-            <td><div v-if="room.noise.status == 'ON'"><img src="ringer-on.png"/></div>
-                <div v-else-if="room.noise.status == 'OFF'"><img src="ringer-off.png"/></div>
+            <td><div v-if="room.noise.status == 'ON'"><img src="../img/ringer-on.png"/></div>
+                <div v-else-if="room.noise.status == 'OFF'"><img src="../img/ringer-off.png"/></div>
             <td>{{ room.noise.level }}</td>
             
             <!--Et les boutons -->
             <td><button @click="switchLight(room)" class="btn btn-light">
-                <img src="switch.png" width="20" /></button></td>
-            <td><button @click="switchRinger(room)" class="btn btn-light"><img src="switch.png" width="20" /></button></td>
+                <img src="../img/switch.png" width="20" /></button></td>
+            <td><button @click="switchRinger(room)" class="btn btn-light"><img src="../img/switch.png" width="20" /></button></td>
         </tr>
         </form>
         </tbody>
@@ -93,6 +119,7 @@
 <script src="https://unpkg.com/vue"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="approom.js"></script>
+
 
 </body>
 </html>
