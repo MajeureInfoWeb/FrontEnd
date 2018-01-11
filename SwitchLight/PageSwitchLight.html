@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!-- MyWebPage 07/01/2018 Valentin Pouzet update 10/01/18 
+      Many things aren't working but I would have liked to play with displays... :'( -->
+<html>
+<head>
+  <title>Page SwitchLight</title>
+  <link rel="icon" type="image/png" href="../img/happy-cloud.png" />
+  <!-- Required meta tags -->
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand"> SuperWebApplication !!!</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="../Room/PageRoom.html">Les rooms</a></li>
+      <li><a href="../Building/PageBuilding.html">Les buildings</a></li>
+      <li class="active"><a>Les switchs</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+  <script src="https://unpkg.com/vue"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+
+  <div class="container" id="appswitchlight">
+        <h3 class="text-center">Une liste déroulante</h3>
+
+        <form NAME="myForm">
+        <p><font size="5"><b><tt>Choose among the "ON" rooms : </tt></b></font>
+        <select id="mySelect">
+          <option v-for="room in rooms" value="room.id">{{ room.id }}
+        </option>
+        </select>
+        <button>Switch OFF</button>
+        </p></form>
+        
+
+        <h3 class="text-center">Switch Light of a room</h3>
+        <p><font size="5"><b><tt>Choose room with ligth :</tt></b></font>
+        <select id="mySelect2">
+          <option> {{ ON }} </option>
+          <option> {{ OFF }}</option>
+        </select>
+        </p>
+        
+        Pick the N° of room with light {{selectedONOFF}} you want to Switch the light : 
+        <select id="mySelect">
+          <option v-for="room in rooms" value="room.id">{{ room.id }}
+        </option>
+        </select>
+        <button>Switch</button>
+       
+        <h3 class="text-center">Switch all the lights (of all the Rooms of all the Buildings)</h3>
+        Switch {{OFF}} all the rooms with lights {{ON}}
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="appswitchlight.js"></script>
+
+</body>
+</html>
